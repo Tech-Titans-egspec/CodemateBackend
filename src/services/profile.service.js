@@ -10,7 +10,6 @@ export const findMatches = async (userId) => {
   const matches = await Profile.find({
     user: { $ne: userId }, // exclude self
     isPublic: true, // only public profiles
-    location: currentProfile.location, // match by location
     skills: { $in: currentProfile.skills }, // at least one skill matches
   }).lean();
 
